@@ -59,3 +59,26 @@ print(os.path.exists(joining))
 
 
 # TIME TO CHANGE DIRECTORIES
+# chdir means change directory.
+# It changes Python's current working directory (CWD).
+
+print(os.getcwd())
+os.chdir(r"C:\Users\anant\Desktop\edits")
+print(os.getcwd())
+print(os.listdir())
+print(os.path.exists("Arise.png"))
+# now it works because our path is assigned to new directory
+
+
+# CREATING NEW FOLDER
+# we use mkdir
+x = input("Enter folder name")
+while(os.path.exists(x)):
+    print("Folder already exists")
+    x = input("Enter folder name again")
+else:
+    os.mkdir(x)
+print(os.getcwd())
+print(os.path.isdir(x))
+print(os.path.exists(x))
+

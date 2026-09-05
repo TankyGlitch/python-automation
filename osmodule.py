@@ -20,5 +20,5 @@ for x in os.listdir():
     elif os.path.isdir(x):
         #os.path.isdir(dirname)
         print("The dir name is: ", x)
-#if we want to check if something even exists as a whole
+#if we want to check if something even exists . so we do os.path.exists(name)
 

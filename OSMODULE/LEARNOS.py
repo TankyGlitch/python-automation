@@ -72,7 +72,7 @@ print(os.path.exists("Arise.png"))
 
 # CREATING NEW FOLDER
 # we use mkdir
-x = input("Enter folder name")
+"""x = input("Enter folder name")
 while(os.path.exists(x)):
     print("Folder already exists")
     x = input("Enter folder name again")
@@ -80,5 +80,69 @@ else:
     os.mkdir(x)
 print(os.getcwd())
 print(os.path.isdir(x))
-print(os.path.exists(x))
+print(os.path.exists(x))"""
 
+# WE CAN CREATE NESTED DIRECTORIES AS WELL. WE CAN USE MAKEDIRS("")
+# os.makedirs("cars/BMW/photos")
+# "Create this structure if necessary. If it already exists, that's fine. exist_ok = True
+print("WE CHECK")
+os.makedirs("cars/BMW/photos", exist_ok = True)
+# os.rename() works for both files and directories.
+# os.rename("old.txt", "new.txt")
+# os.rename("old_folder", "new_folder")
+
+os.remove() is for files, not folders.
+# Python will give you an error because the file isn't there.
+# So you can combine it with what you already know:
+import os
+file = input("Enter file name to delete: ")
+if os.path.isfile(file):
+    os.remove(file)
+    print("File deleted")
+else:
+    print("File doesn't exist")
+
+# DELETING FOLDERS
+os.rmdir()→ deletes a directory.
+os.rmdir() can only remove an empty directory.
+if it contains files first they need to be deleted.
+import os
+folder = input("Enter folder name to delete: ")
+if os.path.isdir(folder):
+    os.rmdir(folder)
+    print("Folder deleted")
+else:
+    print("Folder doesn't exist")
+
+
+# SEPARATE what the file is called from what type it is.
+SUPPOSE:
+file = "Arise.png"
+name, extension = os.path.splitext(file)
+print(name)
+print(extension)
+O/P:
+Arise
+.png
+
+# os.path.getsize()
+# This tells you the size of a file in bytes.
+import os
+size = os.path.getsize("Arise.png")
+print(size)
+
+
+# Python can tell you when a file was last modified.
+import os
+time = os.path.getmtime("Arise.png")
+print(time)
+
+
+# os.environ — Access environment variables stored by the operating system.
+import os
+print(os.environ.get("USERNAME"))
+USED IN API-KEYS.
+
+# os.system() — Execute a command through the operating system.
+import os
+os.system("dir")  # Windows: lists files/folders
